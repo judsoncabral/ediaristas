@@ -4,10 +4,12 @@ import { ThemeProvider } from "@mui/material";
 import theme from "ui/themes/theme";
 import Head from "next/head";
 import Header from "ui/components/surfaces/header/Header";
+import Footer from "ui/components/surfaces/footer/Footer";
+import { AppContainer } from "ui/styles/pages/_app.style";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <head>
+      <Head>
         <title>e-diaristas</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -20,10 +22,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
         <link href="/fonts/tw-icons/css/treinaweb-icons.css" rel="stylesheet" />
-      </head>
+      </Head>
       <ThemeProvider theme={theme}>
-        <Header />
-        <Component {...pageProps} />
+        <AppContainer>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </AppContainer>
       </ThemeProvider>
     </>
   );
